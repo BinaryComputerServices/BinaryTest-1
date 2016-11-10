@@ -5,10 +5,8 @@ public class BinaryMain {
 		System.out.println(args[0]);
 		System.out.println("hi guys!");
 		System.out.println("hey");
+		System.out.println("test5");
 	}
 	
-	public static void tfschange(){
-		System.out.println("hi guys!");
-		System.out.println("hey");
-	}
+
 }
