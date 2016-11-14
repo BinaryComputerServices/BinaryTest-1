@@ -11,7 +11,9 @@ public class BinaryMain {
 		System.out.println("test5");
 		System.out.println("hey");
 		System.out.println("test5");
-	}
+		
+		System.out.println("i'm happy this is working");
+		}
 	
 
 }
