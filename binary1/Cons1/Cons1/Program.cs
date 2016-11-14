@@ -11,6 +11,8 @@ namespace Cons1
         static void Main(string[] args)
         {
             Console.WriteLine("Success");
+            Console.WriteLine("blah");
+            Console.WriteLine("blah");
             //build successful
         }
     }
