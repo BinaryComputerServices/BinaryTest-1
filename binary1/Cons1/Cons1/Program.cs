@@ -13,6 +13,9 @@ namespace Cons1
             Console.WriteLine("Success");
             Console.WriteLine("blah");
             Console.WriteLine("blah");
+
+            Console.WriteLine("blah");
+            Console.WriteLine("blah");
             //build successful
         }
     }

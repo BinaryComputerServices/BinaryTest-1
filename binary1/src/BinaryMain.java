@@ -8,6 +8,9 @@ public class BinaryMain {
 		System.out.println("test5");
 		System.out.println("hey");
 		System.out.println("test5");
+		System.out.println("test5");
+		System.out.println("hey");
+		System.out.println("test5");
 	}
 	
 
