@@ -8,6 +8,16 @@
     <property name="debuglevel" value="source,lines,vars"/>
     <property name="target" value="1.7"/>
     <property name="source" value="1.7"/>
+
+                <property name="src.dir" location="src"/>
+                <property name="src.test.dir" location="${src.dir}/test"/>
+             
+                <property name="target.dir" location="bin"/>
+                <property name="target.classes.java.dir" location="${target.dir}/classes"/>
+                <property name="target.classes.test.dir" location="${target.dir}/test/classes"/>
+             
+                <property name="target.report.dir" location="${target.dir}/report"/>
+              	
     <path id="binary1.classpath">
         <pathelement location="bin"/>
     </path>
@@ -19,11 +29,13 @@
             </fileset>
         </copy>
     </target>
+              	
+              	
     <target name="clean">
         <delete dir="bin"/>
     </target>
     <target depends="clean" name="cleanall"/>
-    <target depends="build-subprojects,build-project" name="build"/>
+    <target depends="build-subprojects,build-project,jtest" name="build"/>
     <target name="build-subprojects"/>
     <target depends="init" name="build-project">
         <echo message="${ant.project.name}: ${ant.file}"/>
@@ -32,6 +44,8 @@
             <classpath refid="binary1.classpath"/>
         </javac>
     </target>
+            	
+              	
     <target description="Build all projects which reference this project. Useful to propagate changes." name="build-refprojects"/>
     <target description="copy Eclipse compiler jars to ant lib directory" name="init-eclipse-compiler">
         <copy todir="${ant.library.dir}">
@@ -46,4 +60,34 @@
         <property name="build.compiler" value="org.eclipse.jdt.core.JDTCompilerAdapter"/>
         <antcall target="build"/>
     </target>
+  
+              	<target name="jtest">
+              	        <mkdir dir="${target.report.dir}"/>
+              	 
+              	        <junit printsummary="yes" haltonerror="yes" haltonfailure="yes">
+              	            <formatter type="plain" usefile="false"/>
+              	            <formatter type="xml"/>
+              	            <batchtest todir="${target.report.dir}">
+              	                <fileset dir="${src.test.dir}">
+              	                    <include name="**/*Test.java"/>
+              	                </fileset>
+              	            </batchtest>
+              	            <classpath>
+              	                <pathelement location="${target.classes.java.dir}"/>
+              	                <pathelement location="${target.classes.test.dir}"/>
+              	                <pathelement path="lib/junit.jar"/>
+              	            </classpath>
+              	        </junit>
+              	    </target>
+              	 
+              	    <target name="jreport" depends="jtest">
+              	        <mkdir dir="${target.report.dir}/html"/>
+              	        <junitreport todir="${target.report.dir}">
+              	            <fileset dir="${target.report.dir}">
+              	                <include name="TEST-*.xml"/>
+              	            </fileset>
+              	            <report todir="${target.report.dir}/html"/>
+              	        </junitreport>
+              	    </target>
+              	 
 </project>
