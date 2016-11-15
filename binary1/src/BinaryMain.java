@@ -14,6 +14,8 @@ public class BinaryMain {
 		
 		System.out.println("i'm happy this is working");
 		System.out.println("i'm happy this is working");
+		System.out.println("freedom");
+		System.out.println("i'm happy this is working");
 		}
 	
 
