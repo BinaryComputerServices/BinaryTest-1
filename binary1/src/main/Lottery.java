@@ -1,3 +1,4 @@
+package main;
 
 public class Lottery {
 
@@ -33,6 +34,7 @@ public class Lottery {
 	public Lottery(){
 		numbers = null;
 		winner = "";
+		drawer="";
 	}
 	
 	
