@@ -5,18 +5,13 @@
               as the first entry and export the buildfile again. --><project basedir="." default="build" name="binary1">
     <property environment="env"/>
     <property name="ECLIPSE_HOME" value="../../../../../Program Files/IBM/DS4.1.0.1"/>
+    <property name="junit.output.dir" value="build/report"/>
     <property name="debuglevel" value="source,lines,vars"/>
     <property name="target" value="1.7"/>
     <property name="source" value="1.7"/>
-
-                <property name="src.dir" location="src"/>
-                <property name="src.test.dir" location="${src.dir}/test"/>
-             
-                <property name="target.dir" location="bin"/>
-                <property name="target.report.dir" location="${target.dir}/report"/>
-              	
     <path id="binary1.classpath">
         <pathelement location="bin"/>
+        <pathelement location="lib/junit.jar"/>
     </path>
     <target name="init">
         <mkdir dir="bin"/>
@@ -26,27 +21,19 @@
             </fileset>
         </copy>
     </target>
-              	
-              	
     <target name="clean">
         <delete dir="bin"/>
     </target>
     <target depends="clean" name="cleanall"/>
-    <target depends="build-subprojects,build-project,jtest" name="build"/>
+    <target depends="build-subprojects,build-project,test" name="build"/>
     <target name="build-subprojects"/>
     <target depends="init" name="build-project">
         <echo message="${ant.project.name}: ${ant.file}"/>
         <javac debug="true" debuglevel="${debuglevel}" destdir="bin" includeantruntime="false" source="${source}" target="${target}">
             <src path="src"/>
             <classpath refid="binary1.classpath"/>
-      	   <classpath>
-      	        <pathelement path="lib/junit.jar"/>
-      	    </classpath>
-         	
         </javac>
     </target>
-            	
-              	
     <target description="Build all projects which reference this project. Useful to propagate changes." name="build-refprojects"/>
     <target description="copy Eclipse compiler jars to ant lib directory" name="init-eclipse-compiler">
         <copy todir="${ant.library.dir}">
@@ -56,42 +43,31 @@
             <patternset includes="jdtCompilerAdapter.jar"/>
             <fileset dir="${ECLIPSE_HOME}/plugins" includes="org.eclipse.jdt.core_*.jar"/>
         </unzip>
-    	
-
     </target>
     <target description="compile project with Eclipse compiler" name="build-eclipse-compiler">
-
-    	<property name="build.compiler" value="org.eclipse.jdt.core.JDTCompilerAdapter"/>
+        <property name="build.compiler" value="org.eclipse.jdt.core.JDTCompilerAdapter"/>
         <antcall target="build"/>
     </target>
-  
-              	<target name="jtest">
-              	        <mkdir dir="${target.report.dir}"/>
-              	 
-              	        <junit printsummary="yes" haltonerror="yes" haltonfailure="yes">
-              	            <formatter type="plain" usefile="false"/>
-              	            <formatter type="xml"/>
-              	            <batchtest todir="${target.report.dir}">
-              	                <fileset dir="${src.test.dir}">
-              	                    <include name="**/*Test.java"/>
-              	                </fileset>
-              	            </batchtest>
-              	            <classpath>
-              	                <pathelement location="test"/>
-              	                <pathelement location="bin/test"/>
-              	                <pathelement path="lib/junit.jar"/>
-              	            </classpath>
-              	        </junit>
-              	    </target>
-              	 
-              	    <target name="jreport" depends="jtest">
-              	        <mkdir dir="${target.report.dir}/html"/>
-              	        <junitreport todir="${target.report.dir}">
-              	            <fileset dir="${target.report.dir}">
-              	                <include name="TEST-*.xml"/>
-              	            </fileset>
-              	            <report todir="${target.report.dir}/html"/>
-              	        </junitreport>
-              	    </target>
-              	 
+    <target name="BinaryMain">
+        <java classname="main.BinaryMain" failonerror="true" fork="yes">
+            <classpath refid="binary1.classpath"/>
+        </java>
+    </target>
+    <target name="test">
+        <mkdir dir="${junit.output.dir}"/>
+        <junit fork="yes" printsummary="withOutAndErr">
+            <formatter type="xml"/>
+            <test name="test.LotteryTest" todir="${junit.output.dir}"/>
+            <classpath refid="binary1.classpath"/>
+        </junit>
+    	<antcall target="junitreport" />
+    </target>
+    <target name="junitreport">
+        <junitreport todir="${junit.output.dir}">
+            <fileset dir="${junit.output.dir}">
+                <include name="TEST-*.xml"/>
+            </fileset>
+            <report format="frames" todir="${junit.output.dir}"/>
+        </junitreport>
+    </target>
 </project>
