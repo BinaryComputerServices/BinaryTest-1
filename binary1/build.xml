@@ -39,6 +39,10 @@
         <javac debug="true" debuglevel="${debuglevel}" destdir="bin" includeantruntime="false" source="${source}" target="${target}">
             <src path="src"/>
             <classpath refid="binary1.classpath"/>
+      	   <classpath>
+      	        <pathelement path="lib/junit.jar"/>
+      	    </classpath>
+         	
         </javac>
     </target>
             	
@@ -56,10 +60,7 @@
 
     </target>
     <target description="compile project with Eclipse compiler" name="build-eclipse-compiler">
- 	   <classpath>
- 	        <pathelement path="lib/junit.jar"/>
- 	    </classpath>
-    	
+
     	<property name="build.compiler" value="org.eclipse.jdt.core.JDTCompilerAdapter"/>
         <antcall target="build"/>
     </target>
