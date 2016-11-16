@@ -5,17 +5,17 @@
               as the first entry and export the buildfile again. --><project basedir="." default="build" name="binary1">
     <property environment="env"/>
     <property name="ECLIPSE_HOME" value="../../../../../Program Files/IBM/DS4.1.0.1"/>
-    <property name="junit.output.dir" value="binary1/build/report"/>
-    <property name="home.src" value = "binary1/src"/>
-    <property name="home.bin" value = "binary1/bin"/>          	
+    <property name="junit.output.dir" value="build/report"/>
+    <property name="home.src" value = "src"/>
+    <property name="home.bin" value = "bin"/>          	
               	
     <property name="debuglevel" value="source,lines,vars"/>
     <property name="target" value="1.7"/>
     <property name="source" value="1.7"/>
     <path id="binary1.classpath">
-        <pathelement location="binary1/bin"/>
-        <pathelement location="binary1/lib/junit.jar"/>
-    <pathelement location="binary1/lib/hamcrest-core-1.3.jar"/>
+        <pathelement location="bin"/>
+        <pathelement location="lib/junit.jar"/>
+    <pathelement location="lib/hamcrest-core-1.3.jar"/>
     </path>
     <target name="init">
         <mkdir dir="${home.bin}"/>
@@ -76,6 +76,7 @@
     	<antcall target="svncommit" />
     </target>
               	
+   	
     <target name="svncommit">
           <exec executable="cmd">	
               	<arg line ="/c svn2.bat" />
