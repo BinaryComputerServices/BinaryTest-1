@@ -21,6 +21,7 @@ public class LotteryTest {
 	public void test() {
 		Assert.assertEquals(5,5);
 		Assert.assertTrue(true);
+		Assert.assertEquals('a', 'a');
 	}
 
 }
