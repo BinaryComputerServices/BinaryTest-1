@@ -23,6 +23,7 @@ public class LotteryTest {
 	@Test
 	public void test() {
 		Assert.assertEquals(new Lottery().getDrawer(),"");
+		Assert.assertEquals(false, false);
 	}
 
 	@Test

@@ -12,7 +12,7 @@
                 <property name="src.dir" location="src"/>
                 <property name="src.test.dir" location="${src.dir}/test"/>
              
-                <property name="target.dir" location="build"/>
+                <property name="target.dir" location="bin"/>
                 <property name="target.report.dir" location="${target.dir}/report"/>
               	
     <path id="binary1.classpath">
