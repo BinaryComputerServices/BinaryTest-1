@@ -5,19 +5,22 @@
               as the first entry and export the buildfile again. --><project basedir="." default="build" name="binary1">
     <property environment="env"/>
     <property name="ECLIPSE_HOME" value="../../../../../Program Files/IBM/DS4.1.0.1"/>
-    <property name="junit.output.dir" value="build/report"/>
+    <property name="junit.output.dir" value="binary1/build/report"/>
+    <property name="home.src" value = "binary1/src"/>
+    <property name="home.bin" value = "binary1/bin"/>          	
+              	
     <property name="debuglevel" value="source,lines,vars"/>
     <property name="target" value="1.7"/>
     <property name="source" value="1.7"/>
     <path id="binary1.classpath">
-        <pathelement location="bin"/>
-        <pathelement location="lib/junit.jar"/>
-    <pathelement location="lib/hamcrest-core-1.3.jar"/>
+        <pathelement location="binary1/bin"/>
+        <pathelement location="binary1/lib/junit.jar"/>
+    <pathelement location="binary1/lib/hamcrest-core-1.3.jar"/>
     </path>
     <target name="init">
-        <mkdir dir="bin"/>
-        <copy includeemptydirs="false" todir="bin">
-            <fileset dir="src">
+        <mkdir dir="${home.bin}"/>
+        <copy includeemptydirs="false" todir="{home.bin}">
+            <fileset dir="${home.src}">
                 <exclude name="**/*.java"/>
             </fileset>
         </copy>
@@ -30,8 +33,8 @@
     <target name="build-subprojects"/>
     <target depends="init" name="build-project">
         <echo message="${ant.project.name}: ${ant.file}"/>
-        <javac debug="true" debuglevel="${debuglevel}" destdir="bin" includeantruntime="false" source="${source}" target="${target}">
-            <src path="src"/>
+        <javac debug="true" debuglevel="${debuglevel}" destdir="${home.bin}" includeantruntime="false" source="${source}" target="${target}">
+            <src path="${home.src}"/>
             <classpath refid="binary1.classpath"/>
         </javac>
     </target>
