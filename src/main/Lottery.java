@@ -1,6 +1,6 @@
 package main;
 
-public class Lottery {
+public class Lottery extends Player {
 
 	
 	public int[] getNumbers() {

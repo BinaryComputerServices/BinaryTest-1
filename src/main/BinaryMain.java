@@ -11,9 +11,9 @@ public class BinaryMain {
 	public static void main(String[] args){
 		System.out.println("This is working the way I want.");
 		Object obj = null;
-		while(true){
-			obj.getClass().toString();//find bugs should find null reference
-			Calendar cal = Calendar.getInstance();
+		Lottery l = new Lottery();
+		if(l instanceof Player){
+			((Player) l).getAge();
 		}
 	}
 	
