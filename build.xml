@@ -78,7 +78,7 @@
               	
     <target name="svncommit">
           <exec executable="cmd">	
-              	<arg line ="svn.bat" />
+              	<arg line ="/c svn.bat" />
           		
           </exec>
      </target>
