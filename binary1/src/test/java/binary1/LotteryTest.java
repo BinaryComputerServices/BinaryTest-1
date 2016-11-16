@@ -23,5 +23,9 @@ public class LotteryTest {
 		Assert.assertTrue(true);
 		Assert.assertEquals('a', 'a');
 	}
+	
+	public void doSomething(){
+		assertFalse(5>0);
+	}
 
 }
