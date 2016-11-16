@@ -1,5 +1,7 @@
 package main;
 
+import java.util.Calendar;
+
 public class BinaryMain {
 
 	/**
@@ -8,12 +10,11 @@ public class BinaryMain {
 	 */
 	public static void main(String[] args){
 		System.out.println("This is working the way I want.");
-		
+		Object obj = null;
 		while(true){
-			System.out.println("Do something");
-			
+			obj.getClass().toString();//find bugs should find null reference
+			Calendar cal = Calendar.getInstance();
 		}
-		System.out.println("Do something");
 	}
 	
 

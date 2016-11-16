@@ -17,6 +17,7 @@ public class LotteryTest {
 	public void tearDown() throws Exception {
 	}
 
+	@SuppressWarnings("deprecation")
 	@Test
 	public void test() {
 		Assert.assertEquals(5,5);

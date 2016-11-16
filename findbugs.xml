@@ -1,23 +1,62 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<BugCollection version="3.0.1-dev-20150306-5afe4d1" sequence="1" timestamp="1479311830206" analysisTimestamp="1479311825698" release="">
+<BugCollection version="3.0.1-dev-20150306-5afe4d1" sequence="1" timestamp="1479312650130" analysisTimestamp="1479312649697" release="">
   <Project projectName="binary1">
     <Jar>C:\Users\Alexander\git\BinaryTest\bin</Jar>
     <AuxClasspathEntry>C:\Users\Alexander\git\BinaryTest\bin</AuxClasspathEntry>
-    <AuxClasspathEntry>C:\Users\Alexander\git\BinaryTest\binary1\lib\junit.jar</AuxClasspathEntry>
-    <AuxClasspathEntry>C:\Users\Alexander\git\BinaryTest\binary1\lib\hamcrest-core-1.3.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Users\Alexander\git\BinaryTest\lib\junit.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Users\Alexander\git\BinaryTest\lib\hamcrest-core-1.3.jar</AuxClasspathEntry>
     <AuxClasspathEntry>C:\Program Files\Java\jdk1.7.0_79\jre\lib\rt.jar</AuxClasspathEntry>
-    <SrcDir>\binary1\src</SrcDir>
+    <SrcDir>C:\Users\Alexander\git\BinaryTest\src</SrcDir>
     <Cloud id="edu.umd.cs.findbugs.cloud.doNothingCloud" online="false"></Cloud>
   </Project>
+  <BugInstance type="EI_EXPOSE_REP" priority="2" rank="18" abbrev="EI" category="MALICIOUS_CODE" first="1">
+    <Class classname="main.Lottery">
+      <SourceLine classname="main.Lottery" sourcefile="Lottery.java" sourcepath="main/Lottery.java"/>
+    </Class>
+    <Method classname="main.Lottery" name="getNumbers" signature="()[I" isStatic="false">
+      <SourceLine classname="main.Lottery" start="7" end="7" startBytecode="0" endBytecode="46" sourcefile="Lottery.java" sourcepath="main/Lottery.java"/>
+    </Method>
+    <Field classname="main.Lottery" name="numbers" signature="[I" isStatic="false">
+      <SourceLine classname="main.Lottery" sourcefile="Lottery.java" sourcepath="main/Lottery.java"/>
+    </Field>
+    <SourceLine classname="main.Lottery" start="7" end="7" startBytecode="4" endBytecode="4" sourcefile="Lottery.java" sourcepath="main/Lottery.java"/>
+    <SourceLine classname="main.Lottery" start="7" end="7" startBytecode="4" endBytecode="4" sourcefile="Lottery.java" sourcepath="main/Lottery.java"/>
+  </BugInstance>
+  <BugInstance type="EI_EXPOSE_REP2" priority="2" rank="18" abbrev="EI2" category="MALICIOUS_CODE" first="1">
+    <Class classname="main.Lottery">
+      <SourceLine classname="main.Lottery" sourcefile="Lottery.java" sourcepath="main/Lottery.java"/>
+    </Class>
+    <Method classname="main.Lottery" name="setNumbers" signature="([I)V" isStatic="false">
+      <SourceLine classname="main.Lottery" start="19" end="20" startBytecode="0" endBytecode="61" sourcefile="Lottery.java" sourcepath="main/Lottery.java"/>
+    </Method>
+    <Field classname="main.Lottery" name="numbers" signature="[I" isStatic="false">
+      <SourceLine classname="main.Lottery" sourcefile="Lottery.java" sourcepath="main/Lottery.java"/>
+    </Field>
+    <LocalVariable name="numbers" register="1" pc="2" role="LOCAL_VARIABLE_NAMED"/>
+    <SourceLine classname="main.Lottery" start="19" end="19" startBytecode="2" endBytecode="2" sourcefile="Lottery.java" sourcepath="main/Lottery.java"/>
+    <SourceLine classname="main.Lottery" start="19" end="19" startBytecode="2" endBytecode="2" sourcefile="Lottery.java" sourcepath="main/Lottery.java"/>
+  </BugInstance>
   <Errors errors="0" missingClasses="0"></Errors>
-  <FindBugsSummary timestamp="Wed, 16 Nov 2016 15:57:05 +0000" total_classes="0" referenced_classes="0" total_bugs="0" total_size="0" num_packages="0" java_version="1.7.0" vm_version="2.6" clock_seconds="157.07" peak_mbytes="517.26" alloc_mbytes="1024.00" gc_seconds="0.97">
+  <FindBugsSummary timestamp="Wed, 16 Nov 2016 16:08:55 +0000" total_classes="3" referenced_classes="20" total_bugs="2" total_size="48" num_packages="2" java_version="1.7.0" vm_version="2.6" clock_seconds="22.94" peak_mbytes="524.59" alloc_mbytes="1024.00" gc_seconds="0.21" priority_2="2">
+    <PackageStats package="main" total_bugs="2" total_types="2" total_size="32" priority_2="2">
+      <ClassStats class="main.BinaryMain" sourceFile="BinaryMain.java" interface="false" size="7" bugs="0"/>
+      <ClassStats class="main.Lottery" sourceFile="Lottery.java" interface="false" size="25" bugs="2" priority_2="2"/>
+    </PackageStats>
+    <PackageStats package="test" total_bugs="0" total_types="1" total_size="16">
+      <ClassStats class="test.LotteryTest" sourceFile="LotteryTest.java" interface="false" size="16" bugs="0"/>
+    </PackageStats>
     <FindBugsProfile>
-      <ClassProfile name="de.tobject.findbugs.builder.FindBugs2Eclipse" totalMilliseconds="1006" invocations="2" avgMicrosecondsPerInvocation="503463" maxMicrosecondsPerInvocation="733317" standardDeviationMircosecondsPerInvocation="229854"/>
+      <ClassProfile name="de.tobject.findbugs.builder.FindBugs2Eclipse" totalMilliseconds="138" invocations="2" avgMicrosecondsPerInvocation="69339" maxMicrosecondsPerInvocation="127438" standardDeviationMircosecondsPerInvocation="58099"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.ClassInfoAnalysisEngine" totalMilliseconds="111" invocations="342" avgMicrosecondsPerInvocation="326" maxMicrosecondsPerInvocation="16410" standardDeviationMircosecondsPerInvocation="1226"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.ClassDataAnalysisEngine" totalMilliseconds="27" invocations="342" avgMicrosecondsPerInvocation="81" maxMicrosecondsPerInvocation="235" standardDeviationMircosecondsPerInvocation="24"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FieldItemSummary" totalMilliseconds="19" invocations="20" avgMicrosecondsPerInvocation="958" maxMicrosecondsPerInvocation="5359" standardDeviationMircosecondsPerInvocation="1366"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FindNoSideEffectMethods" totalMilliseconds="15" invocations="20" avgMicrosecondsPerInvocation="791" maxMicrosecondsPerInvocation="5105" standardDeviationMircosecondsPerInvocation="1182"/>
+      <ClassProfile name="edu.umd.cs.findbugs.OpcodeStack$JumpInfoFactory" totalMilliseconds="13" invocations="68" avgMicrosecondsPerInvocation="193" maxMicrosecondsPerInvocation="710" standardDeviationMircosecondsPerInvocation="178"/>
     </FindBugsProfile>
   </FindBugsSummary>
   <ClassFeatures></ClassFeatures>
   <History>
-    <AppVersion sequence="0" timestamp="1479311830204" release="" codeSize="0" numClasses="0"/>
+    <AppVersion sequence="0" timestamp="1479312650130" release="" codeSize="0" numClasses="0"/>
   </History>
 </BugCollection>
