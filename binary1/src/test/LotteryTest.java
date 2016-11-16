@@ -19,6 +19,7 @@ public class LotteryTest {
 
 	@Test
 	public void test() {
+		Assert.assertEquals(5,0);
 		Assert.assertTrue(true);
 	}
 
