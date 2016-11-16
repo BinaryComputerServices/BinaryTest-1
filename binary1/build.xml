@@ -77,8 +77,8 @@
               	                </fileset>
               	            </batchtest>
               	            <classpath>
-              	                <pathelement location="${target.classes.java.dir}"/>
-              	                <pathelement location="${target.classes.test.dir}"/>
+              	                <pathelement location="test"/>
+              	                <pathelement location="bin/test"/>
               	                <pathelement path="lib/junit.jar"/>
               	            </classpath>
               	        </junit>
