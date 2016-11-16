@@ -29,7 +29,7 @@
         <delete dir="bin"/>
     </target>
     <target depends="clean" name="cleanall"/>
-    <target depends="build-subprojects,build-project,test,svncommit" name="build"/>
+    <target depends="build-subprojects,build-project,test" name="build"/>
     <target name="build-subprojects"/>
     <target depends="init" name="build-project">
         <echo message="${ant.project.name}: ${ant.file}"/>
@@ -73,11 +73,12 @@
             </fileset>
             <report format="frames" todir="${junit.output.dir}"/>
         </junitreport>
+    	<antcall target="svncommit" />
     </target>
               	
     <target name="svncommit">
           <exec executable="cmd">	
-              	<arg line ="/c svn.bat" />
+              	<arg line ="svn.bat" />
           		
           </exec>
      </target>
