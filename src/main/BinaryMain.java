@@ -16,6 +16,7 @@ public class BinaryMain {
 			((Player) l).getAge();
 		}
 		System.out.println("new news");
+		System.out.println("new news");
 	}
 	System.out.println("winner!");
 	
