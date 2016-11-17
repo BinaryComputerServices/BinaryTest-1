@@ -24,7 +24,6 @@ public class BinaryMain {
 		System.out.println("new news");
 		System.out.println("new news");
 	}
-	System.out.println("winner!");
 	
 
 }
