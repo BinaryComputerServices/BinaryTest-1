@@ -73,7 +73,6 @@
             </fileset>
             <report format="frames" todir="${junit.output.dir}"/>
         </junitreport>
-    	<antcall target="svncommit" />
     </target>
               	
 </project>
