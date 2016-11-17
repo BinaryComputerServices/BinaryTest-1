@@ -15,14 +15,7 @@ public class BinaryMain {
 		if(l instanceof Player){
 			((Player) l).getAge();
 		}
-		System.out.println("new news");
-		System.out.println("new news");
-		System.out.println("new news");
-		System.out.println("new news");
-		System.out.println("new news");
-		System.out.println("new news");
-		System.out.println("new news");
-		System.out.println("new news");
+
 	}
 	
 

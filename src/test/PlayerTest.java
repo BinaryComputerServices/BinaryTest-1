@@ -10,7 +10,8 @@ public class PlayerTest {
 
 	@Test
 public void test(){
-	
+	assertEquals("Larry","Larry");
+	assertEquals("Larry","Harry");
 }
 
 }
