@@ -76,11 +76,4 @@
     	<antcall target="svncommit" />
     </target>
               	
-   	
-    <target name="svncommit">
-          <exec executable="cmd">	
-              	<arg line ="/c svn2.bat" />
-          		
-          </exec>
-     </target>
 </project>

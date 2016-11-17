@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<BugCollection version="3.0.1-dev-20150306-5afe4d1" sequence="1" timestamp="1479312650130" analysisTimestamp="1479312649697" release="">
+<BugCollection version="3.0.1-dev-20150306-5afe4d1" sequence="1" timestamp="1479313829959" analysisTimestamp="1479313829451" release="">
   <Project projectName="binary1">
     <Jar>C:\Users\Alexander\git\BinaryTest\bin</Jar>
     <AuxClasspathEntry>C:\Users\Alexander\git\BinaryTest\bin</AuxClasspathEntry>
@@ -10,6 +10,35 @@
     <SrcDir>C:\Users\Alexander\git\BinaryTest\src</SrcDir>
     <Cloud id="edu.umd.cs.findbugs.cloud.doNothingCloud" online="false"></Cloud>
   </Project>
+  <BugInstance type="BC_VACUOUS_INSTANCEOF" priority="2" rank="17" abbrev="BC" category="STYLE" first="1">
+    <Class classname="main.BinaryMain">
+      <SourceLine classname="main.BinaryMain" sourcefile="BinaryMain.java" sourcepath="main/BinaryMain.java"/>
+    </Class>
+    <Method classname="main.BinaryMain" name="main" signature="([Ljava/lang/String;)V" isStatic="true">
+      <SourceLine classname="main.BinaryMain" start="12" end="18" startBytecode="0" endBytecode="15" sourcefile="BinaryMain.java" sourcepath="main/BinaryMain.java"/>
+    </Method>
+    <Type descriptor="Lmain/Lottery;" role="TYPE_FOUND">
+      <SourceLine classname="main.Lottery" start="7" end="38" sourcefile="Lottery.java" sourcepath="main/Lottery.java"/>
+    </Type>
+    <Type descriptor="Lmain/Player;" role="TYPE_EXPECTED">
+      <SourceLine classname="main.Player" start="3" end="24" sourcefile="Player.java" sourcepath="main/Player.java"/>
+    </Type>
+    <SourceLine classname="main.BinaryMain" start="15" end="15" startBytecode="19" endBytecode="19" sourcefile="BinaryMain.java" sourcepath="main/BinaryMain.java"/>
+    <SourceLine classname="main.BinaryMain" start="15" end="15" startBytecode="19" endBytecode="19" sourcefile="BinaryMain.java" sourcepath="main/BinaryMain.java"/>
+  </BugInstance>
+  <BugInstance type="RV_RETURN_VALUE_IGNORED_NO_SIDE_EFFECT" priority="2" rank="17" abbrev="RV" category="STYLE" first="1">
+    <Class classname="main.BinaryMain">
+      <SourceLine classname="main.BinaryMain" sourcefile="BinaryMain.java" sourcepath="main/BinaryMain.java"/>
+    </Class>
+    <Method classname="main.BinaryMain" name="main" signature="([Ljava/lang/String;)V" isStatic="true">
+      <SourceLine classname="main.BinaryMain" start="12" end="18" startBytecode="0" endBytecode="129" sourcefile="BinaryMain.java" sourcepath="main/BinaryMain.java"/>
+    </Method>
+    <Method classname="main.Player" name="getAge" signature="()I" isStatic="false" role="METHOD_CALLED">
+      <SourceLine classname="main.Player" start="14" end="14" startBytecode="0" endBytecode="46" sourcefile="Player.java" sourcepath="main/Player.java"/>
+    </Method>
+    <SourceLine classname="main.BinaryMain" start="16" end="16" startBytecode="26" endBytecode="26" sourcefile="BinaryMain.java" sourcepath="main/BinaryMain.java"/>
+    <SourceLine classname="main.BinaryMain" start="16" end="16" startBytecode="26" endBytecode="26" sourcefile="BinaryMain.java" sourcepath="main/BinaryMain.java"/>
+  </BugInstance>
   <BugInstance type="EI_EXPOSE_REP" priority="2" rank="18" abbrev="EI" category="MALICIOUS_CODE" first="1">
     <Class classname="main.Lottery">
       <SourceLine classname="main.Lottery" sourcefile="Lottery.java" sourcepath="main/Lottery.java"/>
@@ -37,26 +66,89 @@
     <SourceLine classname="main.Lottery" start="19" end="19" startBytecode="2" endBytecode="2" sourcefile="Lottery.java" sourcepath="main/Lottery.java"/>
     <SourceLine classname="main.Lottery" start="19" end="19" startBytecode="2" endBytecode="2" sourcefile="Lottery.java" sourcepath="main/Lottery.java"/>
   </BugInstance>
+  <BugInstance type="NP_ALWAYS_NULL" priority="1" rank="5" abbrev="NP" category="CORRECTNESS" first="1">
+    <Class classname="main.WatchKeys">
+      <SourceLine classname="main.WatchKeys" sourcefile="WatchKeys.java" sourcepath="main/WatchKeys.java"/>
+    </Class>
+    <Method classname="main.WatchKeys" name="register" signature="()V" isStatic="false">
+      <SourceLine classname="main.WatchKeys" start="9" end="20" startBytecode="0" endBytecode="185" sourcefile="WatchKeys.java" sourcepath="main/WatchKeys.java"/>
+    </Method>
+    <LocalVariable name="prev" register="1" pc="28" role="LOCAL_VARIABLE_VALUE_OF"/>
+    <SourceLine classname="main.WatchKeys" start="13" end="13" startBytecode="29" endBytecode="29" sourcefile="WatchKeys.java" sourcepath="main/WatchKeys.java" role="SOURCE_LINE_DEREF"/>
+  </BugInstance>
+  <BugInstance type="NP_LOAD_OF_KNOWN_NULL_VALUE" priority="2" rank="16" abbrev="NP" category="STYLE" first="1">
+    <Class classname="main.WatchKeys">
+      <SourceLine classname="main.WatchKeys" sourcefile="WatchKeys.java" sourcepath="main/WatchKeys.java"/>
+    </Class>
+    <Method classname="main.WatchKeys" name="register" signature="()V" isStatic="false">
+      <SourceLine classname="main.WatchKeys" start="9" end="20" startBytecode="0" endBytecode="39" sourcefile="WatchKeys.java" sourcepath="main/WatchKeys.java"/>
+    </Method>
+    <LocalVariable name="prev" register="1" pc="25" role="LOCAL_VARIABLE_VALUE_OF"/>
+    <SourceLine classname="main.WatchKeys" start="13" end="13" startBytecode="28" endBytecode="28" sourcefile="WatchKeys.java" sourcepath="main/WatchKeys.java"/>
+    <SourceLine classname="main.WatchKeys" start="13" end="13" startBytecode="28" endBytecode="28" sourcefile="WatchKeys.java" sourcepath="main/WatchKeys.java"/>
+  </BugInstance>
+  <BugInstance type="RCN_REDUNDANT_NULLCHECK_OF_NULL_VALUE" priority="2" rank="18" abbrev="RCN" category="STYLE" first="1">
+    <Class classname="main.WatchKeys">
+      <SourceLine classname="main.WatchKeys" sourcefile="WatchKeys.java" sourcepath="main/WatchKeys.java"/>
+    </Class>
+    <Method classname="main.WatchKeys" name="register" signature="()V" isStatic="false">
+      <SourceLine classname="main.WatchKeys" start="9" end="20" startBytecode="0" endBytecode="185" sourcefile="WatchKeys.java" sourcepath="main/WatchKeys.java"/>
+    </Method>
+    <LocalVariable name="prev" register="1" pc="4" role="LOCAL_VARIABLE_VALUE_OF"/>
+    <SourceLine classname="main.WatchKeys" start="11" end="11" startBytecode="5" endBytecode="5" sourcefile="WatchKeys.java" sourcepath="main/WatchKeys.java" role="SOURCE_REDUNDANT_NULL_CHECK"/>
+    <SourceLine classname="main.WatchKeys" start="11" end="11" startBytecode="5" endBytecode="5" sourcefile="WatchKeys.java" sourcepath="main/WatchKeys.java" role="SOURCE_REDUNDANT_NULL_CHECK"/>
+  </BugInstance>
+  <BugInstance type="VA_FORMAT_STRING_USES_NEWLINE" priority="2" rank="20" abbrev="FS" category="BAD_PRACTICE" first="1">
+    <Class classname="main.WatchKeys">
+      <SourceLine classname="main.WatchKeys" sourcefile="WatchKeys.java" sourcepath="main/WatchKeys.java"/>
+    </Class>
+    <Method classname="main.WatchKeys" name="register" signature="()V" isStatic="false">
+      <SourceLine classname="main.WatchKeys" start="9" end="20" startBytecode="0" endBytecode="185" sourcefile="WatchKeys.java" sourcepath="main/WatchKeys.java"/>
+    </Method>
+    <Method classname="java.io.PrintStream" name="format" signature="(Ljava/lang/String;[Ljava/lang/Object;)Ljava/io/PrintStream;" isStatic="false" role="METHOD_CALLED">
+      <SourceLine classname="java.io.PrintStream" start="965" end="977" startBytecode="0" endBytecode="220" sourcefile="PrintStream.java" sourcepath="java/io/PrintStream.java"/>
+    </Method>
+    <String value="register: %s\n" role="STRING_FORMAT_STRING"/>
+    <SourceLine classname="main.WatchKeys" start="12" end="12" startBytecode="21" endBytecode="21" sourcefile="WatchKeys.java" sourcepath="main/WatchKeys.java"/>
+  </BugInstance>
+  <BugInstance type="VA_FORMAT_STRING_USES_NEWLINE" priority="2" rank="20" abbrev="FS" category="BAD_PRACTICE" first="1">
+    <Class classname="main.WatchKeys">
+      <SourceLine classname="main.WatchKeys" sourcefile="WatchKeys.java" sourcepath="main/WatchKeys.java"/>
+    </Class>
+    <Method classname="main.WatchKeys" name="register" signature="()V" isStatic="false">
+      <SourceLine classname="main.WatchKeys" start="9" end="20" startBytecode="0" endBytecode="185" sourcefile="WatchKeys.java" sourcepath="main/WatchKeys.java"/>
+    </Method>
+    <Method classname="java.io.PrintStream" name="format" signature="(Ljava/lang/String;[Ljava/lang/Object;)Ljava/io/PrintStream;" isStatic="false" role="METHOD_CALLED">
+      <SourceLine classname="java.io.PrintStream" start="965" end="977" startBytecode="0" endBytecode="220" sourcefile="PrintStream.java" sourcepath="java/io/PrintStream.java"/>
+    </Method>
+    <String value="update: %s -&gt; %s\n" role="STRING_FORMAT_STRING"/>
+    <SourceLine classname="main.WatchKeys" start="16" end="16" startBytecode="67" endBytecode="67" sourcefile="WatchKeys.java" sourcepath="main/WatchKeys.java"/>
+  </BugInstance>
   <Errors errors="0" missingClasses="0"></Errors>
-  <FindBugsSummary timestamp="Wed, 16 Nov 2016 16:08:55 +0000" total_classes="3" referenced_classes="20" total_bugs="2" total_size="48" num_packages="2" java_version="1.7.0" vm_version="2.6" clock_seconds="22.94" peak_mbytes="524.59" alloc_mbytes="1024.00" gc_seconds="0.21" priority_2="2">
-    <PackageStats package="main" total_bugs="2" total_types="2" total_size="32" priority_2="2">
-      <ClassStats class="main.BinaryMain" sourceFile="BinaryMain.java" interface="false" size="7" bugs="0"/>
+  <FindBugsSummary timestamp="Wed, 16 Nov 2016 16:30:25 +0000" total_classes="6" referenced_classes="24" total_bugs="9" total_size="90" num_packages="2" java_version="1.7.0" vm_version="2.6" clock_seconds="18.22" peak_mbytes="529.92" alloc_mbytes="1024.00" gc_seconds="0.04" priority_2="8" priority_1="1">
+    <PackageStats package="main" total_bugs="9" total_types="4" total_size="69" priority_2="8" priority_1="1">
+      <ClassStats class="main.BinaryMain" sourceFile="BinaryMain.java" interface="false" size="10" bugs="2" priority_2="2"/>
       <ClassStats class="main.Lottery" sourceFile="Lottery.java" interface="false" size="25" bugs="2" priority_2="2"/>
+      <ClassStats class="main.Player" sourceFile="Player.java" interface="false" size="21" bugs="0"/>
+      <ClassStats class="main.WatchKeys" sourceFile="WatchKeys.java" interface="false" size="13" bugs="5" priority_2="4" priority_1="1"/>
     </PackageStats>
-    <PackageStats package="test" total_bugs="0" total_types="1" total_size="16">
+    <PackageStats package="test" total_bugs="0" total_types="2" total_size="21">
       <ClassStats class="test.LotteryTest" sourceFile="LotteryTest.java" interface="false" size="16" bugs="0"/>
+      <ClassStats class="test.PlayerTest" sourceFile="PlayerTest.java" interface="false" size="5" bugs="0"/>
     </PackageStats>
     <FindBugsProfile>
-      <ClassProfile name="de.tobject.findbugs.builder.FindBugs2Eclipse" totalMilliseconds="138" invocations="2" avgMicrosecondsPerInvocation="69339" maxMicrosecondsPerInvocation="127438" standardDeviationMircosecondsPerInvocation="58099"/>
-      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.ClassInfoAnalysisEngine" totalMilliseconds="111" invocations="342" avgMicrosecondsPerInvocation="326" maxMicrosecondsPerInvocation="16410" standardDeviationMircosecondsPerInvocation="1226"/>
-      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.ClassDataAnalysisEngine" totalMilliseconds="27" invocations="342" avgMicrosecondsPerInvocation="81" maxMicrosecondsPerInvocation="235" standardDeviationMircosecondsPerInvocation="24"/>
-      <ClassProfile name="edu.umd.cs.findbugs.detect.FieldItemSummary" totalMilliseconds="19" invocations="20" avgMicrosecondsPerInvocation="958" maxMicrosecondsPerInvocation="5359" standardDeviationMircosecondsPerInvocation="1366"/>
-      <ClassProfile name="edu.umd.cs.findbugs.detect.FindNoSideEffectMethods" totalMilliseconds="15" invocations="20" avgMicrosecondsPerInvocation="791" maxMicrosecondsPerInvocation="5105" standardDeviationMircosecondsPerInvocation="1182"/>
-      <ClassProfile name="edu.umd.cs.findbugs.OpcodeStack$JumpInfoFactory" totalMilliseconds="13" invocations="68" avgMicrosecondsPerInvocation="193" maxMicrosecondsPerInvocation="710" standardDeviationMircosecondsPerInvocation="178"/>
+      <ClassProfile name="de.tobject.findbugs.builder.FindBugs2Eclipse" totalMilliseconds="125" invocations="2" avgMicrosecondsPerInvocation="62594" maxMicrosecondsPerInvocation="111718" standardDeviationMircosecondsPerInvocation="49124"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.ClassInfoAnalysisEngine" totalMilliseconds="90" invocations="355" avgMicrosecondsPerInvocation="255" maxMicrosecondsPerInvocation="13961" standardDeviationMircosecondsPerInvocation="805"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.ClassDataAnalysisEngine" totalMilliseconds="83" invocations="358" avgMicrosecondsPerInvocation="234" maxMicrosecondsPerInvocation="56673" standardDeviationMircosecondsPerInvocation="2987"/>
+      <ClassProfile name="edu.umd.cs.findbugs.ba.npe.NullDerefAndRedundantComparisonFinder" totalMilliseconds="19" invocations="25" avgMicrosecondsPerInvocation="791" maxMicrosecondsPerInvocation="17030" standardDeviationMircosecondsPerInvocation="3316"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FieldItemSummary" totalMilliseconds="17" invocations="24" avgMicrosecondsPerInvocation="748" maxMicrosecondsPerInvocation="4698" standardDeviationMircosecondsPerInvocation="1279"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.asm.ClassReaderAnalysisEngine" totalMilliseconds="16" invocations="329" avgMicrosecondsPerInvocation="50" maxMicrosecondsPerInvocation="15524" standardDeviationMircosecondsPerInvocation="854"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FindNoSideEffectMethods" totalMilliseconds="13" invocations="24" avgMicrosecondsPerInvocation="544" maxMicrosecondsPerInvocation="4186" standardDeviationMircosecondsPerInvocation="903"/>
+      <ClassProfile name="edu.umd.cs.findbugs.OpcodeStack$JumpInfoFactory" totalMilliseconds="12" invocations="78" avgMicrosecondsPerInvocation="153" maxMicrosecondsPerInvocation="658" standardDeviationMircosecondsPerInvocation="157"/>
     </FindBugsProfile>
   </FindBugsSummary>
   <ClassFeatures></ClassFeatures>
   <History>
-    <AppVersion sequence="0" timestamp="1479312650130" release="" codeSize="0" numClasses="0"/>
+    <AppVersion sequence="0" timestamp="1479313829959" release="" codeSize="0" numClasses="0"/>
   </History>
 </BugCollection>
