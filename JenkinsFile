@@ -20,7 +20,9 @@ steps{
 
 stage('push to testing'){
 steps{
-	bat 'git push origin HEAD:testing '
+	bat 'git checkout testing '
+
+	bat 'git pull origin dev '
 
 }
 
