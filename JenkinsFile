@@ -20,7 +20,7 @@ steps{
 
 stage('push to testing'){
 steps{
-	bat 'git push origin  refs/heads/testing'
+	bat 'git push origin HEAD:testing '
 
 }
 
