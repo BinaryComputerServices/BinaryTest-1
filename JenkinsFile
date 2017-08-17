@@ -5,7 +5,7 @@ stage('Checkout'){
 steps{
 	dir('C:\\Users\\Alexander\\Documents\\Binary Projects\\Maven\\jenkins') {
 	 
-	checkout([$class: 'GitSCM', branches: [[name: '*/testing']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: 'C:\\Users\\Alexander\\Desktop\\maventest.git']]])
+	checkout([$class: 'GitSCM', branches: [[name: '*/testing']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/alexanderbrown21/BinaryTest.git']]])
 
 	}
 	}
