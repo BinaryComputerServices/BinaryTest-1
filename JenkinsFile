@@ -13,8 +13,10 @@ steps{
 
 stage('build'){
 steps{
-	bat 'ant  clean build test'
+	dir('C:\\Users\\Alexander\\Documents\\Binary Projects\\Maven\\jenkins') {
 
+	bat 'ant  clean build test'
+}
 }
 
 }
