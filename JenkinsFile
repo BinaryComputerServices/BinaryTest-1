@@ -18,11 +18,5 @@ steps{
 }
 
 }
-
-stage('testing'){
-
-
-
-}
 }
 }
