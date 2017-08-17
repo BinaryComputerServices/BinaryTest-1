@@ -20,7 +20,7 @@ steps{
 
 stage('push to testing'){
 steps{
-	bat 'git merge testing'
+	bat 'git merge origin/testing'
 	bat 'git commit -m "testing"'
 	bat 'git push origin testing'
 
