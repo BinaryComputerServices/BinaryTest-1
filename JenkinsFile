@@ -13,7 +13,7 @@ steps{
 
 stage('build'){
 steps{
-	bat 'ant  clean build junit'
+	bat 'ant  clean build test'
 
 }
 
