@@ -7,17 +7,22 @@ steps{
 	checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: 'C:\\Users\\Alexander\\Desktop\\maventest.git']]])
 	}
 	
-	dir('svn') {
-    checkout([$class: 'SubversionSCM', additionalCredentials: [], excludedCommitMessages: '', excludedRegions: '', excludedRevprop: '', excludedUsers: '', filterChangelog: false, ignoreDirPropChanges: false, includedRegions: '', locations: [[credentialsId: '', depthOption: 'infinity', ignoreExternalsOption: true, local: 'trunk', remote: 'file:///C:/Users/Alexander/Desktop/suzukisvn']], workspaceUpdater: [$class: 'UpdateUpdater']])
-	}
-	
-	
 	}
 }
 
 stage('build'){
 steps{
 	bat 'ant  clean build'
+
+}
+
+}
+
+stage('push to testing'){
+steps{
+	bat 'git merge testing'
+	bat 'git commit -m "testing"'
+	bat 'git push origin testing'
 
 }
 
