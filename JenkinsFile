@@ -14,5 +14,16 @@ steps{
 	
 	}
 }
+<<<<<<< HEAD
+=======
+
+stage('build'){
+steps{
+	bat 'ant  clean build'
+
+}
+
+}
+>>>>>>> master
 }
 }
